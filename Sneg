@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qor Yog'votgan Sahifa</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        
+        .snowflake {
+            color: white;
+            position: absolute;
+            font-size: 20px;
+            animation: snowfall linear infinite;
+            transform-origin: 0 0;
+        }
+        
+        @keyframes snowfall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="snowflakes"></div>
+    <script>
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            const numberOfSnowflakes = 50;
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '&#10052;'; // Qor simvolini HTML entitisi orqali qo'shib qo'yamiz
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                snowflake.style.animationDuration = (Math.random() * 5 + 3) + 's'; // Har bir qor yog'votgani animatsiya davomiyligini o'zgartirish
+                snowflakesContainer.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes();
+    </script>
+</body>
+</html>
